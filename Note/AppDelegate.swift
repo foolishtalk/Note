@@ -20,6 +20,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
 
+    @IBAction func helpAction(_ sender: Any) {
+        openMailApp()
+    }
+    
+    func openMailApp() {
+        let toEmail = "zykzzzz@hotmail.com"
+        let subject = "Note Help".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+        let
+        urlString = "mailto:\(toEmail)?subject=\(subject)"
+        if let url = URL(string:urlString) {
+            NSWorkspace.shared.open(url)
+        }
+    }
+    
     @IBAction func newAction(_ sender: Any) {
         openNewWindow(with: nil)
     }
@@ -27,13 +41,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func openNewWindow(with text: String?,openURL: URL?=nil) {
         let storyboard = NSStoryboard(name: NSStoryboard.Name.init("Main"), bundle: nil)
         if let controller = storyboard.instantiateInitialController() as? NSWindowController,
-            let window = NSApplication.shared.mainWindow,
+            let window = NSApplication.shared.windows.first,
             let contentController = controller.contentViewController as? ViewController {
             controller.showWindow(window)
             contentController.openURL = openURL
             contentController.update(text: text)
         } else {
-            KTAlertHelper.alert(message: nil, info: "未知错误", buttonTitles: ["OK"])
+            KTAlertHelper.alert(message: "提示", info: "无法创建新窗口", buttonTitles: ["OK"])
         }
     }
     
@@ -50,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let str = String(data: data, encoding: .utf8)
                     self?.openNewWindow(with: str,openURL: url)
                 }catch{
-                    KTAlertHelper.alert(message: nil, info: error.localizedDescription, buttonTitles: ["OK"])
+                    KTAlertHelper.alert(message: "提示", info: error.localizedDescription, buttonTitles: ["OK"])
                 }
             }
         }

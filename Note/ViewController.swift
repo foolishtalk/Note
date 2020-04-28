@@ -87,8 +87,10 @@ class ViewController: NSViewController {
             do{
                 try data.write(to: openURL)
             }catch{
-                KTAlertHelper.alert(message: nil, info: error.localizedDescription, buttonTitles: ["OK"])
+                KTAlertHelper.alert(message: "提示", info: error.localizedDescription, buttonTitles: ["OK"])
             }
+        } else {
+            KTAlertHelper.alert(message: "提示", info: "暂时无法保存，请稍后重试", buttonTitles: ["OK"])
         }
     }
     
@@ -107,7 +109,7 @@ class ViewController: NSViewController {
                         try data.write(to: url)
                         self?.openURL = url
                     }catch{
-                        KTAlertHelper.alert(message: nil, info: error.localizedDescription, buttonTitles: ["OK"])
+                        KTAlertHelper.alert(message: "提示", info: error.localizedDescription, buttonTitles: ["OK"])
                     }
                 }
             }

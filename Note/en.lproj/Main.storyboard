@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -619,13 +620,13 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Help" enabled="NO" id="wpr-3q-Mcd">
+                            <menuItem title="Help" id="wpr-3q-Mcd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Note Help" enabled="NO" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Note Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                                <action selector="helpAction:" target="Ady-hI-5gd" id="f7e-M4-iVd"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -637,7 +638,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Note" customModuleProvider="target">
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="记事本" customModuleProvider="target">
                     <connections>
                         <outlet property="openMenuItem" destination="IAo-SY-fd9" id="aWV-fs-Sb4"/>
                         <outlet property="printMenuItem" destination="aTl-1u-JFS" id="wxU-0G-kun"/>
@@ -673,7 +674,7 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="记事本" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="720" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
